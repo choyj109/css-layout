@@ -1,16 +1,124 @@
 @import "_variables";
-@import "_mixins";
-@import "_buttons";
 
-h1 {
-  color: red;
-  @include responsive("iphone") {
-    color: yellow;
+* {
+  box-sizing: border-box;
+}
+body {
+  height: 100vh;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  background-color: $white;
+}
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: $fixedWidth;
+  height: 100%;
+  padding: 10vh 0 36px 68px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: $red;
+  h1 {
+    font-size: 45px;
+    width: 50%;
+    text-transform: uppercase;
+    letter-spacing: 5px;
   }
-  @include responsive("iphone-l") {
-    font-size: 60px;
+  h3 {
+    font-size: 20px;
+    font-weight: 400;
+    margin-bottom: 20px;
   }
-  @include responsive("tablet") {
-    color: green;
+  h3,
+  p {
+    width: 80%;
+    line-height: 1.2;
+    text-align: justify;
+  }
+  p {
+    font-weight: 400;
+    font-size: 15px;
+    margin-bottom: 20px;
+  }
+  nav {
+    width: 80%;
+    ul {
+      display: flex;
+      flex-wrap: wrap;
+      li {
+        cursor: pointer;
+        margin-right: 12px;
+        font-size: 14px;
+        color: black;
+        opacity: 0.8;
+        padding-bottom: 5px;
+        border-bottom: 2px solid rgba(0, 0, 0, 0.5);
+        margin-bottom: 10px;
+        &:hover {
+          opacity: 1;
+        }
+      }
+    }
+  }
+}
+
+main {
+  padding-left: $fixedWidth;
+  .movie {
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.1) 5%,
+        transparent,
+        transparent,
+        transparent,
+        transparent
+      )
+      $red;
+    padding: 72px;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    .wrapper {
+      height: 100%;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      .movie__header {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        align-items: flex-end;
+        margin-bottom: 25px;
+        h4 {
+          font-size: 32px;
+          text-transform: uppercase;
+        }
+        h5 {
+          letter-spacing: 2px;
+        }
+      }
+      .image {
+        width: 100%;
+        height: 100%;
+        background: url("https://besthorrorscenes.com/posters/35_dont-look-now.png")
+          no-repeat center center;
+        background-size: cover;
+        box-shadow: 0 80px 80px -80px #000, 0 0 12px rgba(0, 0, 0, 0.06),
+          inset 0 0 0 1px rgba(0, 0, 0, 0.2);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .play-icon {
+          border-style: solid;
+          border-width: 16px 0px 16px 26px;
+          border-color: transparent transparent transparent white;
+          margin-left: 7px;
+        }
+      }
+    }
   }
 }
